@@ -7,8 +7,11 @@ import Wrapper from './Wrapper'
     // promesse est façon plus visible de traiter les taches asynchrones
     // 3 états : tending, fullfight resolue avec succès, rejected echec renvoi erreur
     // destructuring : destructurer l'objet pour récupérer les propriétés + facilement
+    // les props sont immuables, il ne faut plus les modifier
 
 const Cars = ({children, color, year}) => {
+
+    const colorInfo = color ? color : "Néant";
     
     //  console.log(props.children);
 
@@ -16,7 +19,7 @@ const Cars = ({children, color, year}) => {
            
             <Wrapper>
                 <p>Marque : {children}</p>
-                { color ? <p>Couleur : {color}</p> : <p>Couleur : néant</p> }
+                <p>Couleur : {colorInfo}</p>
                 <p>Année : {year}</p>
             </Wrapper>
         )                

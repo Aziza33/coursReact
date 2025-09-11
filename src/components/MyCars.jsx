@@ -4,6 +4,20 @@ import MyHeader from './MyHeader'
 
 class MyCars extends Component {
 
+    // fonction pour éviter que le texte soit copié
+    noCopy = () => {
+        alert('merci de ne pas copier le texte petit filou !');
+    }
+    // Ajouter un style css au passage de la souris h2 onMouseOver {this.addStyle}
+    addStyle = (e) => {
+        console.log(e.target);
+        if(e.target.classList.contains('styled')) {
+            e.target.classList.remove('styled');
+        }else {
+            e.target.classList.add('styled');
+        }
+    }
+
     state={
         cars: ["Mercedes", "Bmw", "Ferrari" ]
     }
@@ -21,8 +35,12 @@ class MyCars extends Component {
             >
                 {this.props.title}
         </MyHeader>
+        <p onCopy={this.noCopy}>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Sequi ipsa voluptatibus perferendis, qui eos natus voluptatum consequatur dolorem architecto praesentium quaerat 
+            aperiam reprehenderit incidunt recusandae porro ad delectus hic officia.</p>
 
-                      <h2>{this.props.subtitle}</h2>
+
+                      <h2 onMouseOver={this.addStyle}>{this.props.subtitle}</h2>
   
         <Cars color="black" year="2020">{this.state.cars[0]}</Cars>
         <Cars color="white" year="2024">{this.state.cars[1]}</Cars>
@@ -32,7 +50,7 @@ class MyCars extends Component {
 
             </MyHeader>
                 <h2>{this.props.subtitle}</h2>
-
+                
       </div>
     )
   }
