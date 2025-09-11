@@ -1,63 +1,21 @@
-import  MyCars  from './components/MyCars'
-import { Component } from 'react'
-import './App.css'
+import { Component } from 'react';
+import Mycars from './components/Mycars';
+import './App.css';
 
-class App extends Component { // arborescence1 this.
-  // change le titre en dur
-  changeTitle = () => {
-    this.setState({
-      titre: 'Mon nouveau titre'
-    })
-  }
+class App extends Component {
 
-  // change via Param
-  changeTitleParam = (titre) => {
-      this.setState({
-        titre: titre
-      })
+  state = {
+    titre: 'Mon Catalogue Voitures',
+    marque: 'marque'
   }
-// change via Bind
-// bind fixe la valeur du this ds une fonction et ds la fonction on la lie à l'app
-// 
-  changeViaBind = (param) => {
-    this.setState({
-      titre: param
-    })
-  }
-
-  changeViaInput = (e) => {
-    this.setState({
-      titre: e.target.value
-    })
-  }
- 
-
-  state = { // valable que ds app.jsx  / arborescence2 this.state
-    titre: 'My Garage', // propriétés du state ou props
-    subtitle: 'Mes modèles', // propriétés du state ou props
-    color: 'green' // propriétés du state ou props / arorescence3 complète this.state.color
-  };
 
   render() {
     return (
-      <div className="App">
-
-        {/* Changer le nom en dur on click*/}
-         <button onClick={this.changeTitle}>Changer le nom en dur</button>
-         
-        <button onClick={()=>this.changeTitleParam('Titre via un Param')}>Change titre via param</button>
-        <button onClick={this.changeViaBind.bind(this, 'Titre via Bind')}>Change Via Bind</button>
-        <input type="text" onChange={this.changeViaInput} value={this.state.titre}/>
-
-
-        <MyCars 
-          title={this.state.titre}  
-          subtitle={this.state.subtitle} 
-          color={this.state.color}/>
-        {/* <h1>Hello</h1> */}
-
+      <div className='App'>
+        <Mycars title={this.state.titre} />
       </div>
     )
   }
 }
+
 export default App;
