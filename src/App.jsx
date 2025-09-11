@@ -17,9 +17,17 @@ class App extends Component { // arborescence1 this.
       })
   }
 // change via Bind
+// bind fixe la valeur du this ds une fonction et ds la fonction on la lie à l'app
+// 
   changeViaBind = (param) => {
     this.setState({
       titre: param
+    })
+  }
+
+  changeViaInput = (e) => {
+    this.setState({
+      titre: e.target.value
     })
   }
  
@@ -39,12 +47,15 @@ class App extends Component { // arborescence1 this.
          
         <button onClick={()=>this.changeTitleParam('Titre via un Param')}>Change titre via param</button>
         <button onClick={this.changeViaBind.bind(this, 'Titre via Bind')}>Change Via Bind</button>
+        <input type="text" onChange={this.changeViaInput} value={this.state.titre}/>
+
 
         <MyCars 
           title={this.state.titre}  
           subtitle={this.state.subtitle} 
           color={this.state.color}/>
         {/* <h1>Hello</h1> */}
+
       </div>
     )
   }
