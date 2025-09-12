@@ -3,10 +3,11 @@ import Car from './Cars'
 
 class Mycars extends Component {
 
+
     state = {
         cars: [
-            {name: 'Bmw', year: '2025', color: 'grey'},
-            {name: 'Renault', year: '2025', color: 'black'},
+            {name: 'Bmw', year: '2007', color: 'grey'},
+            {name: 'Renault', year: '2010', color: 'black'},
             {name: 'Peugeot', year: '2020', color: 'yellow'}
         ]
      }
@@ -19,24 +20,49 @@ class Mycars extends Component {
         )
     }
      
-    //     cars: {
-    //     marque :'Bmw', year: 2025, color: "grey"
-    // }];
+ 
+    // map récupère léleement courant du tableau, créé un nouveau tableau fictif qui renvoie les new données
 
     render() {
+                    const year = new Date().getFullYear();
+
+        
+        // getAge = year => {
+        //     const now = new Date().getFullYear();
+        //     const age = now - year;
+
+        //     let frenchYearStr = "";
+        //     if (age === 1) {
+        //         frenchYearStr = "an";
+        //     }else if (age > 1) {
+        //         frenchYearStr = "ans";
+        //     }
+        //     return `${age} ${frenchYearStr}`
+        // }
+
         return (
             <div>
                 <h1>{this.props.title}</h1>
 
                  <button onClick={this.addTenYears}>+ 10 ans</button>
-                    
-                {/* <Car year={2000} color="red">Ford</Car>
-                <Car>Mercedes</Car>
-                <Car color="green"></Car> */}
 
-                <Car color={this.state.cars[0].color} year={this.state.cars[0].year}>{this.state.cars[0].name}</Car>
-                <Car color={this.state.cars[1].color} year={this.state.cars[1].year}>{this.state.cars[1].name}</Car>
-                <Car color={this.state.cars[2].color} year={this.state.cars[2].year}>{this.state.cars[2].name}</Car> 
+                 {
+                    this.state.cars.map(({name, color, year}, index) => {
+                        return(
+                            <div key={index}>
+                                <Car  
+                                nom = {name}
+                                color = {color}
+                                year = {year}/>
+                                {/* color={cars.color} year={year - cars.year + 'ans'}>{this.state.cars.name}</Car> */}
+                            </div>
+                        )
+                    })
+                 }
+
+                <Car color={this.state.cars[0].color} year={ year - this.state.cars[0].year + 'ans'}>{this.state.cars[0].name}</Car>
+                <Car color={this.state.cars[1].color} year={year - this.state.cars[1].year + 'ans'}>{this.state.cars[1].name}</Car>
+                <Car color={this.state.cars[2].color} year={year - this.state.cars[2].year + 'ans'}>{this.state.cars[2].name}</Car> 
             </div>
            
         )
