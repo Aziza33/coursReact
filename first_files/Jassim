@@ -1,0 +1,29 @@
+import React from 'react';
+
+const Jassim = props => {
+
+    const btnReponseJassim = props.leState.messageMaman !== null 
+    ? <button onClick={props.reponseJassimProps}>Réponse</button>
+    : <button disabled>Réponse</button>
+
+    // const btnReponseJassim = props.leState.messageMaman
+    
+
+//   console.log(Jassim)
+    return (
+        <div>
+            <h2>{props.name}</h2>
+            <p>{props.leState.messageJassim}</p>
+            
+            {btnReponseJassim}
+        </div>
+    );
+
+}
+
+    
+
+  
+
+
+export default Jassim

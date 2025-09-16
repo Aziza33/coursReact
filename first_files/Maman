@@ -1,0 +1,42 @@
+import React, { Component } from 'react';
+import Jassim from './Jassim'
+
+class Maman extends Component {
+
+    state = {
+        messageMaman: null,
+        messageJassim: null
+    }
+
+    ordreMaman = () => {
+        this.setState({
+            messageMaman: 'Viens me faire un câlin !'
+        })
+    }
+
+    reponseJassim = () => {
+        this.setState({
+            messageJassim: `J'arrive !`
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Maman</h1>
+                <button onClick={this.ordreMaman}>Ordre de Maman</button>
+                <p>{this.state.messageMaman}</p>
+                <hr />
+
+                <Jassim 
+                name="Jassim" 
+                leState={this.state}
+                reponseJassimProps={this.reponseJassim}
+                />
+            </div>
+        )
+        
+    }
+}
+
+export default Maman
