@@ -2,8 +2,8 @@ import { Component } from 'react';
 import Mycars from './components/MyCars';
 import Welcome from './components/Welcome';
 import Maman from './components/Maman';
-import Form from './components/Car'
-import Car from './components/Car'
+import Car from './components/Car';
+import Form from './components/Form'
 import './App.css';
 
 class App extends Component {
@@ -20,6 +20,7 @@ class App extends Component {
         <Welcome />
         <Maman />
         <Car height="350"/>
+        <Form />
       </div>
     )
   }
