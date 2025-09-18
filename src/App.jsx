@@ -6,6 +6,7 @@ import Car from './components/Car';
 import Form from './components/Form'
 import './App.css';
 
+
 class App extends Component {
 
   state = {
@@ -20,7 +21,10 @@ class App extends Component {
         <Welcome />
         <Maman />
         <Car height="350"/>
-        <Form />
+        <Form 
+        head={false}
+
+        />
       </div>
     )
   }
